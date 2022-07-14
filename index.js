@@ -1,4 +1,8 @@
 const { startServer } = require('myserver');
 const { createApp } = require('./src/app.js');
 
-startServer(8888, createApp());
+const config = {
+  rootDirectory: './public'
+};
+
+startServer(8888, createApp(config));

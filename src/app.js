@@ -1,12 +1,14 @@
 const { errorHandler, createFileContentServer, logRequest, parseBodyParams,
   parseSearchParams, createAsyncRouter } = require('myserver');
+const { startGame } = require('./handlers/unoHandler');
 
-const createApp = () => {
+const createApp = ({ rootDirectory }) => {
   const handlers = [
     parseSearchParams,
     parseBodyParams,
     logRequest,
-    createFileContentServer(),
+    startGame,
+    createFileContentServer(rootDirectory),
     errorHandler
   ]
 
