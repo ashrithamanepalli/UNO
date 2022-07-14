@@ -1,28 +1,11 @@
-const xhrGet = (path, data = '', callBack) => {
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', () => {
-    if (xhr.status >= 200 && xhr.status <= 299) {
-      callBack(xhr);
-    }
-    return;
-  });
-  xhr.open('GET', path);
-  xhr.send(data);
+const clearBoard = () => {
+  const cardsHolder = document.querySelector('#cardsHolder');
+  cardsHolder.innerHTML = '';
 };
 
-const xhrPost = (path, data, callBack) => {
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', () => {
-    if (xhr.status >= 200 && xhr.status <= 299) {
-      callBack(xhr);
-    }
-    return;
-  });
-  xhr.open('POST', path);
-  xhr.send(data);
-};
+const refreshBoard = ({ response: rawRes }) => {
+  clearBoard();
 
-const createCards = ({ response: rawRes }) => {
   const response = JSON.parse(rawRes);
   const cardsHolder = document.querySelector('#cardsHolder');
   const playerEl = document.createElement('p');
@@ -38,8 +21,12 @@ const createCards = ({ response: rawRes }) => {
   return;
 };
 
+const drawCard = () => {
+  xhrPost('/draw-card', '', refreshBoard);
+};
+
 const initGame = () => {
-  xhrGet('/status', '', createCards)
+  xhrGet('/status', '', refreshBoard)
 };
 
 window.onload = initGame;
