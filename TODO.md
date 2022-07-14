@@ -9,4 +9,5 @@
 
 # Done :
 
+- [x] Make `unoHandler` a closure to accept game status
 - [x] Hardcode card values
