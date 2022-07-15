@@ -1,12 +1,12 @@
 # Todo :
 
-- [ ] Move to express module
 - [ ] Add tests
 - [ ] Implement UI for game
 
 
 # Done :
 
+- [x] Move to express module
 - [x] single player game with four cards
   - [x] assign two cards to player
   - [x] Have two cards in deck

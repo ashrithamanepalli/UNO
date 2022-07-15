@@ -1,12 +1,11 @@
 {
   "dependencies": {
-    "mime-types": "^2.1.35",
-    "myserver": "github:ashrithamanepalli/myServer"
+    "express": "^4.18.1",
+    "mime-types": "^2.1.35"
   },
   "name": "uno",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node index.js",
     "test": "mocha"
