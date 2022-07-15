@@ -1,3 +1,8 @@
+const throwCard = (gameState) => {
+  const thrownCard = gameState.player1.pop();
+  gameState.lot.push(thrownCard);
+};
+
 const drawCard = (gameState) => {
   const pickedCard = gameState.deck.pop();
   gameState.player1.push(pickedCard);
@@ -17,6 +22,12 @@ const startGame = (status) => {
 
     if (pathname === '/draw-card') {
       drawCard(status);
+      res.end(JSON.stringify(status));
+      return;
+    }
+
+    if (pathname === '/throw-card') {
+      throwCard(status);
       res.end(JSON.stringify(status));
       return;
     }

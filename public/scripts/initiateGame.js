@@ -21,6 +21,10 @@ const refreshBoard = ({ response: rawRes }) => {
   return;
 };
 
+const throwCard = () => {
+  xhrPost('/throw-card', '', refreshBoard);
+};
+
 const drawCard = () => {
   xhrPost('/draw-card', '', refreshBoard);
 };
