@@ -5,11 +5,14 @@ const randInt = (limit) => {
 class Game {
   #allCards;
   #status;
+  #cardPerPlayer;
 
-  constructor() {
+  constructor(cardPerPlayer) {
+    this.#cardPerPlayer = cardPerPlayer;
     this.#allCards = [1, 2, 3, 4];
     this.#status = {
       cardsInHand: { player1: [] },
+      cardOnPlay: null,
       deck: [],
       lot: []
     };
@@ -31,9 +34,11 @@ class Game {
   }
 
   #distributeCards() {
-    const cardLimit = 2;
+    const cardLimit = this.#cardPerPlayer;
+
     this.#status.cardsInHand.player1 = this.#allCards.slice(0, cardLimit);
-    this.#status.deck = this.#allCards.slice(cardLimit);
+    this.#status.cardOnPlay = this.#allCards[cardLimit]
+    this.#status.deck = this.#allCards.slice(cardLimit + 1);
   }
 
   drawCard() {
@@ -49,6 +54,7 @@ class Game {
       return;
     }
     const thrownCard = this.#status.cardsInHand.player1.pop();
+    this.#status.cardOnPlay = thrownCard;
     this.#status.lot.push(thrownCard);
   }
 

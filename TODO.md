@@ -1,17 +1,19 @@
 # Todo :
 
-- [ ] Configure card limit for distribution
-- [ ] Make shuffle cards accept deck
+- [ ] Generate cards based on config( card values and colors)
 - [ ] Add color attribute to cards
 - [ ] Make card have color
-- [ ] Display the top card of lot
-- [ ] Display the deck
 - [ ] Click event on cards
-- [ ] Add tests for draw, throw and display
+- [ ] Fill the deck with lot when it is empty
+- [ ] Make shuffle cards accept deck
 - [ ] Handle UI for player having multiple cards
+- [ ] Add tests for draw, throw and display
 
 # Done :
 
+- [x] Display the top card of lot
+- [x] Display the deck
+- [x] Configure card limit for distribution
 - [x] Distribute cards from all cards
 - [x] Shuffle card before distribution
 - [x] Implement UI for game

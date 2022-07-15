@@ -6,7 +6,7 @@ const config = {
 };
 
 const main = () => {
-  const game = new Game();
+  const game = new Game(2);
   const app = createApp(config, game);
   app.listen(8888, () => console.log('Listening on port 8888'));
 };
