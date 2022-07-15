@@ -9,19 +9,25 @@ class Game {
 
   init() {
     this.#status = {
-      player1: [1, 2],
+      player1: { cards: [1, 2] },
       deck: [3, 4],
       lot: []
     };
   }
 
   drawCard() {
+    if (this.#status.deck.length <= 0) {
+      return;
+    }
     const pickedCard = this.#status.deck.pop();
-    this.#status.player1.push(pickedCard);
+    this.#status.player1.cards.push(pickedCard);
   };
 
   throwCard() {
-    const thrownCard = this.#status.player1.pop();
+    if (this.#status.player1.cards.length <= 0) {
+      return;
+    }
+    const thrownCard = this.#status.player1.cards.pop();
     this.#status.lot.push(thrownCard);
   }
 

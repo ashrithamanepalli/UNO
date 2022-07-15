@@ -1,5 +1,24 @@
 #cardsHolder {
-  height: 50%;
-  width: 50%;
+  padding: 1em;
+  height: 90%;
+  width: 100%;
   background-color: beige;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1em;
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
+  font-size: 3em;
+  height: 5em;
+  width: 3em;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  font-weight: bolder;
 }

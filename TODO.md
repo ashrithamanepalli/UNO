@@ -1,11 +1,18 @@
 # Todo :
 
-- [ ] Add tests
-- [ ] Implement UI for game
-
+- [ ] Distribute cards from all cards
+- [ ] Configure card limit for distribution
+- [ ] Add color attribute to cards
+- [ ] Make card have color
+- [ ] Display the top card of lot
+- [ ] Display the deck
+- [ ] Click event on cards
+- [ ] Add tests for draw, throw and display
+- [ ] Handle UI for player having multiple cards
 
 # Done :
 
+- [x] Implement UI for game
 - [x] Make game entity
 - [x] Move to express module
 - [x] single player game with four cards
