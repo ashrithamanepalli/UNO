@@ -6,6 +6,7 @@
 
 # Done :
 
+- [x] Make game entity
 - [x] Move to express module
 - [x] single player game with four cards
   - [x] assign two cards to player

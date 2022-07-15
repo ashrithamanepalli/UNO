@@ -30,7 +30,7 @@ const drawCard = () => {
 };
 
 const initGame = () => {
-  xhrGet('/refresh', '', refreshBoard)
+  xhrGet('/play', '', refreshBoard)
 };
 
-window.onload = initGame;
+// window.onload = initGame;
