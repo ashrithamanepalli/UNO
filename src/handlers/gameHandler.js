@@ -9,18 +9,35 @@ class Game {
 
   constructor(cardPerPlayer) {
     this.#cardPerPlayer = cardPerPlayer;
-    this.#allCards = [1, 2, 3, 4];
+  }
+
+  init() {
+    this.#allCards = [];
     this.#status = {
       cardsInHand: { player1: [] },
       cardOnPlay: null,
       deck: [],
       lot: []
     };
-  }
 
-  init() {
+    this.#generateAllCards();
     this.#shuffleCards();
     this.#distributeCards();
+  }
+
+  #generateAllCards() {
+    const symbols = [1, 2, 3, 4];
+    const colors = ['red', 'green'];
+
+    for (let symIndex = 0; symIndex < symbols.length; symIndex++) {
+      for (let colIndex = 0; colIndex < colors.length; colIndex++) {
+        this.#allCards.push({
+          color: colors[colIndex],
+          symbol: symbols[symIndex]
+        });
+      }
+    }
+    console.log(this.#allCards, this.#allCards.length);
   }
 
   #shuffleCards() {
@@ -47,6 +64,7 @@ class Game {
     }
     const pickedCard = this.#status.deck.pop();
     this.#status.cardsInHand.player1.push(pickedCard);
+    console.log(this.#status);
   };
 
   throwCard() {
@@ -56,6 +74,7 @@ class Game {
     const thrownCard = this.#status.cardsInHand.player1.pop();
     this.#status.cardOnPlay = thrownCard;
     this.#status.lot.push(thrownCard);
+    console.log(this.#status);
   }
 
   get status() {

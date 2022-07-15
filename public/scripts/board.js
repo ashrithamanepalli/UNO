@@ -9,13 +9,14 @@ const generateCard = (card, cardContainer) => {
   const cardsHolder = document.querySelector(cardContainer);
   const cardElement = document.createElement('div');
   cardElement.classList.add('card');
-  cardElement.id = card;
-  cardElement.innerText = card;
+  cardElement.classList.add(card.color);
+  cardElement.id = card.symbol;
+  cardElement.innerText = card.symbol;
   cardsHolder.appendChild(cardElement);
 };
 
 const generateDeck = (cards) => {
-  generateCard('UNO', '#deck');
+  generateCard({ symbol: 'UNO', color: 'black' }, '#deck');
 };
 
 const generateLot = (card) => {
@@ -30,6 +31,7 @@ const generatePlayerCards = (cards) => {
 
 const updateCards = ({ response: rawRes }) => {
   const response = JSON.parse(rawRes);
+  console.log(response);
 
   clearBoard();
 

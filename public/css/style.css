@@ -1,14 +1,13 @@
 #board {
-  padding: 1em;
   height: 90%;
   width: 100%;
-  background-color: beige;
+  background-color: #daefe0;
   box-sizing: border-box;
 }
 
 #playerCards {
   position: relative;
-  top: 20em;
+  top: 22em;
   display: flex;
   justify-content: center;
   gap: 1em;
@@ -16,20 +15,31 @@
 
 .cardsOnBoard {
   position: relative;
-  top: 13em;
+  top: 16em;
   display: flex;
   justify-content: center;
   gap: 1em;
 }
 
+.red {
+  background-color: red;
+}
 
+.green {
+  background-color: green;
+}
+
+.black {
+  background-color: black;
+  color: whitesmoke;
+}
 
 .card {
   box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
   font-size: 3em;
-  height: 5em;
+  height: 4.5em;
   width: 3em;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   justify-content: center;
   align-items: center;

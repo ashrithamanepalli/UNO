@@ -1,8 +1,5 @@
 # Todo :
 
-- [ ] Generate cards based on config( card values and colors)
-- [ ] Add color attribute to cards
-- [ ] Make card have color
 - [ ] Click event on cards
 - [ ] Fill the deck with lot when it is empty
 - [ ] Make shuffle cards accept deck
@@ -11,6 +8,9 @@
 
 # Done :
 
+- [x] Add color attribute to cards
+- [x] Make card have color
+- [x] Generate cards based on config( card values and colors)
 - [x] Display the top card of lot
 - [x] Display the deck
 - [x] Configure card limit for distribution
