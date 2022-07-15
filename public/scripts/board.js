@@ -17,7 +17,7 @@ const updateCards = ({ response: rawRes }) => {
 
   clearBoard();
 
-  response.player1.cards.forEach(card => {
+  response.cardsInHand.player1.forEach(card => {
     generateCard(card);
   });
 };

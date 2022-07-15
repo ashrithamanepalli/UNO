@@ -1,18 +1,39 @@
+const randInt = (limit) => {
+  return Math.floor((Math.random() * 1000) % limit);
+};
+
 class Game {
   #allCards;
   #status;
 
   constructor() {
     this.#allCards = [1, 2, 3, 4];
-    this.#status = {};
+    this.#status = {
+      cardsInHand: { player1: [] },
+      deck: [],
+      lot: []
+    };
   }
 
   init() {
-    this.#status = {
-      player1: { cards: [1, 2] },
-      deck: [3, 4],
-      lot: []
-    };
+    this.#shuffleCards();
+    this.#distributeCards();
+  }
+
+  #shuffleCards() {
+    for (let index = 0; index < 10; index++) {
+      const pickFrom = randInt(this.#allCards.length);
+
+      const card = this.#allCards.splice(pickFrom, 1);
+      this.#allCards = this.#allCards.concat(card);
+    }
+    // this.#allCards.splice(insertTo, 0, card);
+  }
+
+  #distributeCards() {
+    const cardLimit = 2;
+    this.#status.cardsInHand.player1 = this.#allCards.slice(0, cardLimit);
+    this.#status.deck = this.#allCards.slice(cardLimit);
   }
 
   drawCard() {
@@ -20,14 +41,14 @@ class Game {
       return;
     }
     const pickedCard = this.#status.deck.pop();
-    this.#status.player1.cards.push(pickedCard);
+    this.#status.cardsInHand.player1.push(pickedCard);
   };
 
   throwCard() {
-    if (this.#status.player1.cards.length <= 0) {
+    if (this.#status.cardsInHand.player1.length <= 0) {
       return;
     }
-    const thrownCard = this.#status.player1.cards.pop();
+    const thrownCard = this.#status.cardsInHand.player1.pop();
     this.#status.lot.push(thrownCard);
   }
 

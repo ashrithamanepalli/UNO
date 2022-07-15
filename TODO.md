@@ -1,7 +1,7 @@
 # Todo :
 
-- [ ] Distribute cards from all cards
 - [ ] Configure card limit for distribution
+- [ ] Make shuffle cards accept deck
 - [ ] Add color attribute to cards
 - [ ] Make card have color
 - [ ] Display the top card of lot
@@ -12,6 +12,8 @@
 
 # Done :
 
+- [x] Distribute cards from all cards
+- [x] Shuffle card before distribution
 - [x] Implement UI for game
 - [x] Make game entity
 - [x] Move to express module
