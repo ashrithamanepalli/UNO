@@ -3,47 +3,20 @@ class Game {
   #status;
   #cardPerPlayer;
 
-  constructor(cardPerPlayer) {
+  constructor(shuffledCards, cardPerPlayer) {
+    this.#allCards = shuffledCards;
     this.#cardPerPlayer = cardPerPlayer;
-  }
 
-  init() {
-    this.#allCards = [];
     this.#status = {
       cardsInHand: { player1: [] },
       cardOnPlay: null,
       deck: [],
       lot: []
     };
+  }
 
-    this.#generateAllCards();
-    this.#shuffleCards();
+  init() {
     this.#distributeCards();
-  }
-
-  #generateAllCards() {
-    const symbols = [1, 2, 3, 4];
-    const colors = ['red', 'green'];
-
-    for (let symIndex = 0; symIndex < symbols.length; symIndex++) {
-      for (let colIndex = 0; colIndex < colors.length; colIndex++) {
-        const color = colors[colIndex];
-        const symbol = symbols[symIndex];
-        this.#allCards.push({
-          color, symbol, id: `${color}${symbol}_1`
-        });
-      }
-    }
-  }
-
-  #shuffleCards() {
-    for (let index = 0; index < 10; index++) {
-      const pickFrom = randInt(this.#allCards.length);
-
-      const card = this.#allCards.splice(pickFrom, 1);
-      this.#allCards = this.#allCards.concat(card);
-    }
-    // this.#allCards.splice(insertTo, 0, card);
   }
 
   #distributeCards() {
@@ -62,7 +35,7 @@ class Game {
     this.#status.cardsInHand.player1.push(pickedCard);
   };
 
-  findCardPosition(cards, cardId) {
+  #findCardPosition(cards, cardId) {
     for (let index = 0; index < cards.length; index++) {
       if (cards[index].id === cardId) {
         return index;
@@ -76,7 +49,7 @@ class Game {
       return;
     }
 
-    const cardPosition = this.findCardPosition(cards, cardId);
+    const cardPosition = this.#findCardPosition(cards, cardId);
     const [thrownCard] = cards.splice(cardPosition, 1);
     this.#status.cardOnPlay = thrownCard;
     this.#status.lot.push(thrownCard);
@@ -86,9 +59,5 @@ class Game {
     return this.#status;
   }
 }
-
-const randInt = (limit) => {
-  return Math.floor((Math.random() * 1000) % limit);
-};
 
 module.exports = { Game }
