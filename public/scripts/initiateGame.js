@@ -1,5 +1,5 @@
-const throwCard = () => {
-  xhrPost('/throw-card', '', updateCards);
+const throwCard = (card) => () => {
+  xhrPost('/throw-card', `id=${card.id}`, updateCards);
 };
 
 const drawCard = () => {

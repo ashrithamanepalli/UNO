@@ -19,5 +19,6 @@ const xhrPost = (path, data, callBack) => {
     return;
   });
   xhr.open('POST', path);
+  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
   xhr.send(data);
 };

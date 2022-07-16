@@ -1,6 +1,5 @@
 # Todo :
 
-- [ ] Click event on cards
 - [ ] Fill the deck with lot when it is empty
 - [ ] Make shuffle cards accept deck
 - [ ] Handle UI for player having multiple cards
@@ -8,6 +7,7 @@
 
 # Done :
 
+- [x] Click event on cards
 - [x] Add color attribute to cards
 - [x] Make card have color
 - [x] Generate cards based on config( card values and colors)

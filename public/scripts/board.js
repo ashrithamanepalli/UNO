@@ -5,33 +5,39 @@ const clearBoard = () => {
   })
 };
 
-const generateCard = (card, cardContainer) => {
-  const cardsHolder = document.querySelector(cardContainer);
+const generateCard = (card) => {
   const cardElement = document.createElement('div');
   cardElement.classList.add('card');
   cardElement.classList.add(card.color);
   cardElement.id = card.symbol;
   cardElement.innerText = card.symbol;
-  cardsHolder.appendChild(cardElement);
+  return cardElement;
 };
 
 const generateDeck = (cards) => {
-  generateCard({ symbol: 'UNO', color: 'black' }, '#deck');
+  const cardElem = generateCard({ symbol: 'UNO', color: 'black' });
+  const cardsHolder = document.querySelector('#deck');
+  cardElem.addEventListener('click', drawCard);
+  cardsHolder.appendChild(cardElem);
 };
 
 const generateLot = (card) => {
-  generateCard(card, '#cardsLot');
+  const cardElem = generateCard(card);
+  const cardsHolder = document.querySelector('#cardsLot');
+  cardsHolder.appendChild(cardElem);
 };
 
 const generatePlayerCards = (cards) => {
   cards.forEach(card => {
-    generateCard(card, '#playerCards');
+    const cardElem = generateCard(card);
+    const cardsHolder = document.querySelector('#playerCards');
+    cardElem.addEventListener('click', throwCard(card));
+    cardsHolder.appendChild(cardElem);
   });
 };
 
 const updateCards = ({ response: rawRes }) => {
   const response = JSON.parse(rawRes);
-  console.log(response);
 
   clearBoard();
 

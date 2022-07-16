@@ -1,5 +1,5 @@
 const { createApp } = require('./src/app.js');
-const { Game } = require('./src/handlers/gameHandler.js');
+const { Game } = require('./src/handlers/game.js');
 
 const config = {
   rootDirectory: './public'

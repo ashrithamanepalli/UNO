@@ -14,6 +14,8 @@ const injectGame = (game) => (req, res, next) => {
 const createApp = ({ rootDirectory }, game) => {
   const app = express();
 
+  app.use(express.urlencoded({ extended: true }));
+
   app.use(logRequest);
   app.use(injectGame(game));
 

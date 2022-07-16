@@ -34,12 +34,16 @@
   color: whitesmoke;
 }
 
+/* .card:hover {
+  height: 4.8em;
+  width: 3.1em;
+} */
+
 .card {
   box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
   font-size: 3em;
   height: 4.5em;
   width: 3em;
-  /* background-color: aquamarine; */
   display: flex;
   justify-content: center;
   align-items: center;
