@@ -5,12 +5,14 @@ const showLoginPage = (req, res) => {
 const loginUser = (req, res) => {
   const { username } = req.body;
   if (!username) {
-    res.status(409);
-    res.end('Username Required');
+    res.json({ registrationStatus: false, message: 'Provide valid username.' });
     return;
   }
   req.session.username = username;
-  res.redirect('/game');
+  req.game.addPlayer(req.session);
+  res.json({
+    registrationStatus: true, message: 'Registration successful.'
+  });
 };
 
 const auth = (req, res, next) => {

@@ -11,14 +11,16 @@ const throwCard = (req, res) => {
 };
 
 const playGame = (req, res) => {
-  console.log(req.url);
   req.game.init();
   res.json(req.game.status);
 };
 
 const serveGamePage = (req, res, next) => {
-  console.log(req.url);
   res.redirect('/uno.html');
 };
 
-module.exports = { drawCard, throwCard, playGame, serveGamePage };
+const canStartGame = (req, res, next) => {
+  res.json({ areSlotsFilled: req.game.areSlotsFilled() });
+}
+
+module.exports = { drawCard, throwCard, playGame, serveGamePage, canStartGame };

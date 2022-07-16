@@ -2,10 +2,12 @@ class Game {
   #allCards;
   #status;
   #cardPerPlayer;
+  #players;
 
   constructor(shuffledCards, cardPerPlayer) {
     this.#allCards = shuffledCards;
     this.#cardPerPlayer = cardPerPlayer;
+    this.#players = [];
 
     this.#status = {
       cardsInHand: { player1: [] },
@@ -25,6 +27,14 @@ class Game {
     this.#status.cardsInHand.player1 = this.#allCards.slice(0, cardLimit);
     this.#status.cardOnPlay = this.#allCards[cardLimit]
     this.#status.deck = this.#allCards.slice(cardLimit + 1);
+  }
+
+  addPlayer({ username }) {
+    this.#players.push({ username });
+  }
+
+  areSlotsFilled() {
+    return this.#players.length === 2;
   }
 
   drawCard() {
