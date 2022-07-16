@@ -4,6 +4,7 @@
 - [ ] Make shuffle cards accept deck
 - [ ] Handle UI for player having multiple cards
 - [ ] Add tests for draw, throw and display
+- [ ] make `/uno.html` url protected
 
 # Done :
 
