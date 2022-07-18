@@ -7,7 +7,14 @@ const drawCard = () => {
 };
 
 const initGame = () => {
-  xhrGet('/game/play', '', updateCards)
+  xhrGet('/game/play', '', updateCards);
+  refreshBoard();
+};
+
+const refreshBoard = () => {
+  setInterval(() => {
+    xhrGet('/game/currentState', '', updateCards);
+  }, 1000);
 };
 
 window.onload = initGame;

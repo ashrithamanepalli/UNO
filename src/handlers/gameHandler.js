@@ -19,10 +19,14 @@ const throwCard = (req, res) => {
 const playGame = (req, res) => {
   const { game } = req;
   game.init();
-  console.log({
+  res.json({
     playerCards: game.handOf(req.session.username),
     ...game.tableInfo()
   });
+};
+
+const currentState = (req, res) => {
+  const { game } = req;
   res.json({
     playerCards: game.handOf(req.session.username),
     ...game.tableInfo()
@@ -37,4 +41,7 @@ const canStartGame = (req, res, next) => {
   res.json({ areSlotsFilled: req.game.areSlotsFilled() });
 }
 
-module.exports = { drawCard, throwCard, playGame, serveGamePage, canStartGame };
+module.exports = {
+  drawCard, throwCard, playGame,
+  serveGamePage, canStartGame, currentState
+};

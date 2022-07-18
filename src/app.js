@@ -2,8 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const session = require('cookie-session');
 
-const { drawCard, throwCard, playGame, serveGamePage, canStartGame } =
-  require('./handlers/gameHandler');
+const { drawCard, throwCard, playGame, serveGamePage,
+  canStartGame, currentState } = require('./handlers/gameHandler');
 const { showLoginPage, loginUser, auth } = require('./handlers/loginHandler');
 const { sessionConfig } = require('./.sessionConfig');
 
@@ -30,6 +30,7 @@ const gameRouter = () => {
   router.get('/', serveGamePage);
   router.get('/are-slots-filled', canStartGame);
   router.get('/play', playGame);
+  router.get('/currentState', currentState);
   router.post('/draw-card', drawCard);
   router.post('/throw-card', throwCard);
 

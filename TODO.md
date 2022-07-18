@@ -1,7 +1,6 @@
 # Todo :
 
 - [ ] Both players should not initiate game
-- [ ] Refresh board continuously
 - [ ] Only allow the one player to play at a time
 - [ ] Allow to create table and join table
 - [ ] Waiting page
@@ -12,6 +11,7 @@
 
 # Done :
 
+- [x] Refresh board continuously
 - [x] make `/uno.html` url protected
 - [x] Click event on cards
 - [x] Add color attribute to cards
