@@ -14,10 +14,12 @@ const generateCard = (card) => {
   return cardElement;
 };
 
-const generateDeck = (cards) => {
+const generateDeck = ({ deck, isCurrentPlayer }) => {
   const cardElem = generateCard({ symbol: 'UNO', color: 'black' });
   const cardsHolder = document.querySelector('#deck');
-  cardElem.addEventListener('click', drawCard);
+  if (isCurrentPlayer) {
+    cardElem.addEventListener('click', drawCard);
+  }
   cardsHolder.appendChild(cardElem);
 };
 
@@ -27,11 +29,15 @@ const generateLot = (card) => {
   cardsHolder.appendChild(cardElem);
 };
 
-const generatePlayerCards = (cards) => {
-  cards.forEach(card => {
+const generatePlayerCards = ({ playerCards, isCurrentPlayer }) => {
+  playerCards.forEach(card => {
     const cardElem = generateCard(card);
     const cardsHolder = document.querySelector('#playerCards');
-    cardElem.addEventListener('click', throwCard(card));
+
+    if (isCurrentPlayer) {
+      cardElem.addEventListener('click', throwCard(card));
+    }
+
     cardsHolder.appendChild(cardElem);
   });
 };
@@ -41,8 +47,8 @@ const updateCards = ({ response: rawRes }) => {
 
   clearBoard();
 
-  generatePlayerCards(response.playerCards);
-  generateDeck(response.deck);
+  generatePlayerCards(response);
+  generateDeck(response);
   generateLot(response.cardOnPlay);
 
 };

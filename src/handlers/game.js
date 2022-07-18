@@ -3,11 +3,13 @@ class Game {
   #status;
   #cardPerPlayer;
   #players;
+  #currentPlayerIndex;
 
   constructor(shuffledCards, cardPerPlayer) {
     this.#allCards = shuffledCards;
     this.#cardPerPlayer = cardPerPlayer;
     this.#players = [];
+    this.currentPlayer = null;
 
     this.#status = {
       cardsInHand: {},
@@ -19,8 +21,19 @@ class Game {
 
   init() {
     if (!this.#status.cardOnPlay) {
+      this.#currentPlayerIndex = 0;
       this.#distributeCards();
+      this.currentPlayer = this.#players[this.#currentPlayerIndex].username;
     }
+  }
+
+  changeCurrentPlayer() {
+    this.#currentPlayerIndex++;
+    console.log(this.#currentPlayerIndex);
+    if (this.#currentPlayerIndex >= this.#players.length) {
+      this.#currentPlayerIndex = 0;
+    }
+    this.currentPlayer = this.#players[this.#currentPlayerIndex].username;
   }
 
   #distributeCards() {
@@ -55,6 +68,7 @@ class Game {
     }
     const pickedCard = this.#status.deck.pop();
     this.#status.cardsInHand[username].push(pickedCard);
+    this.changeCurrentPlayer();
   };
 
   #findCardPosition(cards, cardId) {
@@ -75,15 +89,17 @@ class Game {
     const [thrownCard] = cards.splice(cardPosition, 1);
     this.#status.cardOnPlay = thrownCard;
     this.#status.lot.push(thrownCard);
+    this.changeCurrentPlayer();
   }
 
   handOf(player) {
     return this.#status.cardsInHand[player];
   }
 
-  tableInfo() {
+  tableInfo(player) {
     const { deck, lot, cardOnPlay } = this.#status;
-    return { deck, lot, cardOnPlay };
+    const isCurrentPlayer = this.currentPlayer === player;
+    return { deck, lot, cardOnPlay, isCurrentPlayer };
   }
 }
 

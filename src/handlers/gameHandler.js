@@ -3,7 +3,7 @@ const drawCard = (req, res) => {
   game.drawCard(req.session.username);
   res.json({
     playerCards: game.handOf(req.session.username),
-    ...game.tableInfo()
+    ...game.tableInfo(req.session.username)
   });
 };
 
@@ -12,7 +12,7 @@ const throwCard = (req, res) => {
   game.throwCard(req.session.username, req.body.id);
   res.json({
     playerCards: game.handOf(req.session.username),
-    ...game.tableInfo()
+    ...game.tableInfo(req.session.username)
   });
 };
 
@@ -21,7 +21,7 @@ const playGame = (req, res) => {
   game.init();
   res.json({
     playerCards: game.handOf(req.session.username),
-    ...game.tableInfo()
+    ...game.tableInfo(req.session.username)
   });
 };
 
@@ -29,7 +29,7 @@ const currentState = (req, res) => {
   const { game } = req;
   res.json({
     playerCards: game.handOf(req.session.username),
-    ...game.tableInfo()
+    ...game.tableInfo(req.session.username)
   });
 };
 

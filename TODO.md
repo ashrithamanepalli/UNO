@@ -1,7 +1,7 @@
 # Todo :
 
+- [ ] Add a pass button when drawn a card and still no match is found
 - [ ] Both players should not initiate game
-- [ ] Only allow the one player to play at a time
 - [ ] Allow to create table and join table
 - [ ] Waiting page
 - [ ] Fill the deck with lot when it is empty
@@ -11,6 +11,7 @@
 
 # Done :
 
+- [x] Only allow the one player to play at a time
 - [x] Refresh board continuously
 - [x] make `/uno.html` url protected
 - [x] Click event on cards
