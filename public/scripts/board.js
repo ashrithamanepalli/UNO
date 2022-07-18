@@ -41,7 +41,7 @@ const updateCards = ({ response: rawRes }) => {
 
   clearBoard();
 
-  generatePlayerCards(response.cardsInHand.player1);
+  generatePlayerCards(response.playerCards);
   generateDeck(response.deck);
   generateLot(response.cardOnPlay);
 

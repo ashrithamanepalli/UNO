@@ -1,13 +1,18 @@
 # Todo :
 
+- [ ] Both players should not initiate game
+- [ ] Refresh board continuously
+- [ ] Only allow the one player to play at a time
+- [ ] Allow to create table and join table
+- [ ] Waiting page
 - [ ] Fill the deck with lot when it is empty
 - [ ] Make shuffle cards accept deck
 - [ ] Handle UI for player having multiple cards
 - [ ] Add tests for draw, throw and display
-- [ ] make `/uno.html` url protected
 
 # Done :
 
+- [x] make `/uno.html` url protected
 - [x] Click event on cards
 - [x] Add color attribute to cards
 - [x] Make card have color

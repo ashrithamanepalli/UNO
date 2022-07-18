@@ -9,3 +9,5 @@ const drawCard = () => {
 const initGame = () => {
   xhrGet('/game/play', '', updateCards)
 };
+
+window.onload = initGame;
