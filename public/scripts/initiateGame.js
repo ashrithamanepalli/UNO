@@ -10,8 +10,11 @@ const isSlotFilled = () => {
 
 const checkForSlots = ({ response: rawRes }) => {
   const res = JSON.parse(rawRes);
-  if (res.registrationStatus)
+  document.querySelector('.message').innerText = res.message;
+  if (res.registrationStatus) {
+    document.querySelector('.message').innerText += ' Please Wait for other player to join';
     setInterval(isSlotFilled, 1000);
+  }
 };
 
 const register = () => {

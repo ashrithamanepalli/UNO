@@ -4,19 +4,16 @@
   <title>Login</title>
   <script src="scripts/xhrUtils.js"></script>
   <script src="scripts/initiateGame.js"></script>
+  <link rel="stylesheet" href="css/register.css">
 </head>
 
 <body>
   <main>
     <form>
-      <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-      </div>
-      <div>
-        <input type="button" value="submit" onclick="register()">
-      </div>
+      <input type="text" name="username" id="username" placeholder="Username">
+      <input type="button" value="Submit" onclick="register()">
     </form>
+    <section class="message"></section>
   </main>
 </body>
 
